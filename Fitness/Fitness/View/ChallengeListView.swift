@@ -11,18 +11,39 @@ struct ChallengeListView: View {
     @StateObject private var vm = ChallengeListViewModel()
     
     var body: some View {
+        ZStack {
+            if vm.isLoading {
+                ProgressView()
+            } else if let error = vm.error {
+                VStack {
+                    Text(error.localizedDescription)
+                    Button(action: { vm.send(action: .retry) } ) {
+                        Text("Retry")
+                    }
+                    .padding(10)
+                    .background(Rectangle().fill(Color.red).cornerRadius(5))
+                }
+            } else {
+                mainContentView
+            }
+        }
+    }
+    
+    var mainContentView: some View {
         ScrollView{
             VStack {
-                LazyVGrid(columns: [.init(.flexible()),.init(.flexible())]) {
+                LazyVGrid(columns: [.init(.flexible(), spacing: 20),.init(.flexible())], spacing: 20) {
                     ForEach(vm.itemViewModels, id: \.self) { viewModel in
                         ChallengeItemView(viewModel: viewModel)
                     }
                 }
                 Spacer()
             }
+            .padding(10)
         }
         .navigationTitle(vm.title)
     }
+    
 }
 
 struct ChallengeItemView: View {
@@ -32,19 +53,36 @@ struct ChallengeItemView: View {
         self.viewModel = viewModel
     }
     
+    var titleRow: some View {
+        HStack{
+            Text(viewModel.title)
+                .font(.system(size: 24, weight: .bold))
+            Spacer()
+            Image(systemName: "trash")
+        }
+    }
+    
+    var dailyIncreaseRow: some View {
+        HStack {
+            Text(viewModel.increaseText)
+                .font(.system(size: 24, weight: .bold))
+            Spacer()
+        }
+    }
+    
     var body: some View {
         HStack {
             Spacer()
             VStack {
-                Text(viewModel.title)
-                    .font(.system(size: 24, weight: .bold))
+                titleRow
                 Text(viewModel.statusText)
-                Text(viewModel.increaseText)
+                    .font(.system(size: 12, weight: .bold))
+                    .padding(25)
+                dailyIncreaseRow
             }
-            .padding()
+            .padding(.vertical, 10)
             Spacer()
         }
-        .background(Rectangle().fill(Color.darkPrimaryButton).cornerRadius(5))
-        .padding()
+        .background(Rectangle().fill(Color.primaryButton).cornerRadius(5))
     }
 }
