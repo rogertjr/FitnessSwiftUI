@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ChallengeListView: View {
     @StateObject private var vm = ChallengeListViewModel()
+    @AppStorage("isDarkMode") private var isDarkMode = false
     
     var body: some View {
         ZStack {
@@ -45,6 +46,7 @@ struct ChallengeListView: View {
             NavigationView {
                 CreateView()
             }
+            .preferredColorScheme(isDarkMode ? .dark : .light)
         }
         .navigationBarItems(trailing: Button(action: { vm.send(action: .create) }, label: {
             Image(systemName: "plus.circle").imageScale(.large)
