@@ -9,14 +9,19 @@ import FirebaseAuth
 import Combine
 
 protocol UserServiceProtocol {
-    func currentUser() -> AnyPublisher<User?,Never>
+    var currentUser: User? {get}
+    func currentUserPublisher() -> AnyPublisher<User?,Never>
     func sigInAnon() -> AnyPublisher<User,IncrementError>
     func observerAuthChanges() -> AnyPublisher<User?, Never>
     func linkAccount(email: String, password: String) -> AnyPublisher<Void, IncrementError>
+    func login(email: String, password: String) -> AnyPublisher<Void, IncrementError>
+    func logout() -> AnyPublisher<Void, IncrementError>
 }
 
 class UserService: UserServiceProtocol {
-    func currentUser() -> AnyPublisher<User?, Never> {
+    let currentUser = Auth.auth().currentUser
+    
+    func currentUserPublisher() -> AnyPublisher<User?, Never> {
         Just(Auth.auth().currentUser).eraseToAnyPublisher()
     }
     
@@ -54,6 +59,31 @@ class UserService: UserServiceProtocol {
                     }
                 }
             })
+        }
+        .eraseToAnyPublisher()
+    }
+    
+    func logout() -> AnyPublisher<Void, IncrementError> {
+        return Future<Void, IncrementError> { promise in
+            do {
+                try Auth.auth().signOut()
+                promise(.success(()))
+            } catch {
+                promise(.failure(.default(description: error.localizedDescription)))
+            }
+        }
+        .eraseToAnyPublisher()
+    }
+    
+    func login(email: String, password: String) -> AnyPublisher<Void, IncrementError> {
+        return Future<Void, IncrementError> { promise in
+            Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
+                if let error = error {
+                    promise(.failure(.default(description: error.localizedDescription)))
+                } else {
+                    promise(.success(()))
+                }
+            }
         }
         .eraseToAnyPublisher()
     }

@@ -27,6 +27,12 @@ class LoginSignUpViewModel: ObservableObject {
         self.mode = mode
         self.userService = userService
         self._isPushed = isPushed
+        
+        Publishers.CombineLatest($email, $password)
+            .map { [weak self] email, password in
+                return self?.isValidEmail(email) == true && self?.isValidPassword(password) == true
+            }
+            .assign(to: &$isValid)
     }
     
     var title: String {
@@ -59,20 +65,45 @@ class LoginSignUpViewModel: ObservableObject {
     func tappedActionButton() {
         switch mode {
         case .login:
-            print("login")
+            userService
+                .login(email: email, password: password)
+                .sink { (completion) in
+                    switch completion {
+                    case let .failure(error):
+                        print(error.localizedDescription)
+                    case .finished:
+                        break
+                    }
+                } receiveValue: { _ in }
+                .store(in: &cancellables)
+
+            
         case .signup:
             userService.linkAccount(email: email, password: password)
                 .sink { [weak self] (completion) in
                     switch completion {
                     case let .failure(error):
                         print(error.localizedDescription)
-                    case  let .finished:
+                    case .finished:
                         self?.isPushed = false
                         print("finished")
                     }
                 } receiveValue: { _ in }
                 .store(in: &cancellables)
         }
+    }
+}
+
+extension LoginSignUpViewModel {
+    func isValidEmail(_ email: String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+
+        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailPred.evaluate(with: email) && email.count > 5
+    }
+    
+    func isValidPassword(_ password: String) -> Bool {
+        return password.count > 5
     }
 }
 
