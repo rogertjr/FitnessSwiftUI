@@ -38,6 +38,10 @@
 		374A6D7525C89BF8007F4DD2 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A6D7425C89BF8007F4DD2 /* SettingsView.swift */; };
 		374A6D7825C89C29007F4DD2 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A6D7725C89C29007F4DD2 /* SettingsViewModel.swift */; };
 		374A6D7B25C89C48007F4DD2 /* SettingsItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A6D7A25C89C48007F4DD2 /* SettingsItemViewModel.swift */; };
+		374A6D7E25C8A3AC007F4DD2 /* LandingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A6D7D25C8A3AC007F4DD2 /* LandingViewModel.swift */; };
+		374A6D8125C8A526007F4DD2 /* LoginSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A6D8025C8A526007F4DD2 /* LoginSignUpView.swift */; };
+		374A6D8425C8A55E007F4DD2 /* LoginSignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A6D8325C8A55E007F4DD2 /* LoginSignUpViewModel.swift */; };
+		374A6D8725C8A872007F4DD2 /* TextfieldRoundedStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A6D8625C8A872007F4DD2 /* TextfieldRoundedStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +74,10 @@
 		374A6D7425C89BF8007F4DD2 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		374A6D7725C89C29007F4DD2 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		374A6D7A25C89C48007F4DD2 /* SettingsItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItemViewModel.swift; sourceTree = "<group>"; };
+		374A6D7D25C8A3AC007F4DD2 /* LandingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewModel.swift; sourceTree = "<group>"; };
+		374A6D8025C8A526007F4DD2 /* LoginSignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSignUpView.swift; sourceTree = "<group>"; };
+		374A6D8325C8A55E007F4DD2 /* LoginSignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSignUpViewModel.swift; sourceTree = "<group>"; };
+		374A6D8625C8A872007F4DD2 /* TextfieldRoundedStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextfieldRoundedStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +148,7 @@
 				374A6D2C25C8355E007F4DD2 /* RemindView.swift */,
 				374A6D6825C87E71007F4DD2 /* ChallengeListView.swift */,
 				374A6D7425C89BF8007F4DD2 /* SettingsView.swift */,
+				374A6D8025C8A526007F4DD2 /* LoginSignUpView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -150,6 +159,7 @@
 				374A6D1E25C82968007F4DD2 /* PrimaryButtonStyle.swift */,
 				374A6D2125C82A70007F4DD2 /* Color+Ext.swift */,
 				374A6D5325C86E61007F4DD2 /* IncrementError.swift */,
+				374A6D8625C8A872007F4DD2 /* TextfieldRoundedStyle.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -172,6 +182,8 @@
 				374A6D7125C8896A007F4DD2 /* ChallengeItemViewModel.swift */,
 				374A6D7725C89C29007F4DD2 /* SettingsViewModel.swift */,
 				374A6D7A25C89C48007F4DD2 /* SettingsItemViewModel.swift */,
+				374A6D7D25C8A3AC007F4DD2 /* LandingViewModel.swift */,
+				374A6D8325C8A55E007F4DD2 /* LoginSignUpViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -297,6 +309,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				374A6D8125C8A526007F4DD2 /* LoginSignUpView.swift in Sources */,
 				374A6D7225C8896A007F4DD2 /* ChallengeItemViewModel.swift in Sources */,
 				374A6D7825C89C29007F4DD2 /* SettingsViewModel.swift in Sources */,
 				374A6D7B25C89C48007F4DD2 /* SettingsItemViewModel.swift in Sources */,
@@ -308,12 +321,15 @@
 				374A6D3525C83B53007F4DD2 /* DropdownItemProtocol.swift in Sources */,
 				374A6D4E25C86816007F4DD2 /* Challenge.swift in Sources */,
 				374A6D6F25C8809B007F4DD2 /* QuerySnapshotPublisher.swift in Sources */,
+				374A6D7E25C8A3AC007F4DD2 /* LandingViewModel.swift in Sources */,
 				374A6D1925C8263D007F4DD2 /* LandingView.swift in Sources */,
 				374A6D0825C825FF007F4DD2 /* FitnessApp.swift in Sources */,
 				374A6D4825C85755007F4DD2 /* UserService.swift in Sources */,
 				374A6D5C25C8798D007F4DD2 /* TabContainerView.swift in Sources */,
+				374A6D8725C8A872007F4DD2 /* TextfieldRoundedStyle.swift in Sources */,
 				374A6D2D25C8355E007F4DD2 /* RemindView.swift in Sources */,
 				374A6D6225C879F7007F4DD2 /* TabItemViewModel.swift in Sources */,
+				374A6D8425C8A55E007F4DD2 /* LoginSignUpViewModel.swift in Sources */,
 				374A6D6925C87E71007F4DD2 /* ChallengeListView.swift in Sources */,
 				374A6D6525C87B49007F4DD2 /* TabContainerViewModel.swift in Sources */,
 				374A6D5125C868C8007F4DD2 /* ChallengeService.swift in Sources */,

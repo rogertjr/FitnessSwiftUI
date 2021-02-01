@@ -8,7 +8,50 @@
 import SwiftUI
 
 struct LandingView: View {
-    @State private var isActive: Bool = false
+    @StateObject private var viewModel = LandingViewModel()
+    
+    var title: some View {
+        Text(viewModel.title)
+            .font(.system(size: 64, weight: .medium))
+            .foregroundColor(.white)
+    }
+    
+    var createButton: some View {
+        Button(action: { viewModel.createPushed = true }, label: {
+            HStack(spacing: 15){
+                Spacer()
+                
+                Image(systemName: viewModel.createButtonImage)
+                    .font(.system(size: 24, weight: .semibold))
+                    .foregroundColor(.white)
+                
+                Text(viewModel.createButtonTitle)
+                    .font(.system(size: 24, weight: .semibold))
+                    .foregroundColor(.white)
+                
+                Spacer()
+            }
+        })
+        .padding(15)
+        .buttonStyle(PrimaryButtonStyle(fillColor: .darkPrimaryButton))
+    }
+    
+    var alreadyButton: some View {
+        Button(action: {
+            viewModel.loginSignUpPushed = true
+        }) {
+            Text(viewModel.alreadyButtonTitle)
+        }
+        .foregroundColor(.white)
+    }
+    
+    var backgroundImage: some View {
+        Image(viewModel.backgroundImageName)
+            .resizable()
+            .aspectRatio(contentMode: .fill)
+            .overlay(Color.black.opacity(0.4))
+            
+    }
     
     var body: some View {
         NavigationView {
@@ -16,38 +59,21 @@ struct LandingView: View {
                 VStack {
                     Spacer()
                         .frame(height: geo.size.height * 0.08)
-                    Text("Increment")
-                        .font(.system(size: 64, weight: .medium))
-                        .foregroundColor(.white)
+                    title
                     Spacer()
                     
-                    NavigationLink(
-                        destination: CreateView(), isActive: $isActive) {
-                        Button(action: { isActive = true }, label: {
-                            HStack(spacing: 15){
-                                Spacer()
-                                
-                                Image(systemName: "plus.circle")
-                                    .font(.system(size: 24, weight: .semibold))
-                                    .foregroundColor(.white)
-                                
-                                Text("Create a Challenge")
-                                    .font(.system(size: 24, weight: .semibold))
-                                    .foregroundColor(.white)
-                                
-                                Spacer()
-                            }
-                        })
-                        .padding(15)
-                        .buttonStyle(PrimaryButtonStyle(fillColor: .darkPrimaryButton))
+                    NavigationLink(destination: CreateView(), isActive: $viewModel.createPushed) {
+                        createButton
+                    }
+                    
+                    NavigationLink(destination: LoginSignUpView(viewModel: .init(mode: .login)), isActive: $viewModel.loginSignUpPushed) {
+                        alreadyButton
                     }
                 }
+                .padding(.bottom, 15)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(
-                    Image("pullup")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .overlay(Color.black.opacity(0.4))
+                    backgroundImage
                         .frame(width: geo.size.width)
                         .edgesIgnoringSafeArea(.all)
                 )
