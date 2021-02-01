@@ -15,7 +15,7 @@ struct LandingView: View {
             GeometryReader { geo in
                 VStack {
                     Spacer()
-                        .frame(height: geo.size.height * 0.18)
+                        .frame(height: geo.size.height * 0.08)
                     Text("Increment")
                         .font(.system(size: 64, weight: .medium))
                         .foregroundColor(.white)

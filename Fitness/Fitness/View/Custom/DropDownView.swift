@@ -7,19 +7,20 @@
 
 import SwiftUI
 
-struct DropDownView: View {
+struct DropDownView<T: DropdownItemProtocol>: View {
+    @Binding var viewModel: T
     var body: some View {
         VStack {
             HStack{
-                Text("Exercise")
+                Text(viewModel.headerTitle)
                     .font(.system(size: 22, weight: .semibold))
                 Spacer()
             }
             .padding(.vertical, 10)
             
-            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+            Button(action: { viewModel.isSelected = true }, label: {
                 HStack{
-                    Text("pushups")
+                    Text(viewModel.dropdownTitle)
                         .font(.system(size: 28, weight: .semibold))
                     Spacer()
                     Image(systemName: "arrowtriangle.down.circle")

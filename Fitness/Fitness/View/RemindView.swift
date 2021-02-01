@@ -13,7 +13,7 @@ struct RemindView: View {
             
             Spacer()
             
-            DropDownView()
+//            DropDownView()
             Spacer()
             
             Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
