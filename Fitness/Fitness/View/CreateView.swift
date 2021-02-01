@@ -19,7 +19,7 @@ struct CreateView: View {
         }
     }
     
-    var body: some View {
+    var mainContentView: some View {
         ScrollView {
             VStack {
                 dropDownList
@@ -32,9 +32,23 @@ struct CreateView: View {
                         .font(.system(size: 24, weight: .medium))
                 })
             }
-            .navigationBarTitle("Create")
-            .navigationBarHidden(true)
-            .padding(.bottom, 15)
         }
+    }
+    
+    var body: some View {
+        ZStack{
+            if vm.isLoading {
+                ProgressView()
+            } else {
+                mainContentView
+            }
+        }
+        .alert(isPresented: Binding<Bool>.constant($vm.error.wrappedValue != nil)) {
+            Alert(title: Text("Error"), message: Text($vm.error.wrappedValue?.localizedDescription ?? ""), dismissButton: .default(Text("Ok"), action: { vm.error = nil })
+            )
+        }
+        .navigationBarTitle("Create")
+        .navigationBarHidden(true)
+        .padding(.bottom, 15)
     }
 }

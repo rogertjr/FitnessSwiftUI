@@ -10,7 +10,7 @@ import Combine
 
 protocol UserServiceProtocol {
     func currentUser() -> AnyPublisher<User?,Never>
-    func sigInAnon() -> AnyPublisher<User,Error>
+    func sigInAnon() -> AnyPublisher<User,IncrementError>
 }
 
 class UserService: UserServiceProtocol {
@@ -18,11 +18,11 @@ class UserService: UserServiceProtocol {
         Just(Auth.auth().currentUser).eraseToAnyPublisher()
     }
     
-    func sigInAnon() -> AnyPublisher<User, Error> {
-        return Future<User, Error> { promise in
+    func sigInAnon() -> AnyPublisher<User, IncrementError> {
+        return Future<User, IncrementError> { promise in
             Auth.auth().signInAnonymously { (result, error) in
                 if let error = error {
-                    return promise(.failure(error))
+                    return promise(.failure(.auth(description: error.localizedDescription)))
                 } else if let user = result?.user {
                     return promise(.success(user))
                 }
