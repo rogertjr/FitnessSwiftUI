@@ -22,7 +22,7 @@ struct LandingView: View {
                     Spacer()
                     
                     NavigationLink(
-                        destination: Text("navigated"), isActive: $isActive) {
+                        destination: CreateView(), isActive: $isActive) {
                         Button(action: { isActive = true }, label: {
                             HStack(spacing: 15){
                                 Spacer()
@@ -38,7 +38,7 @@ struct LandingView: View {
                                 Spacer()
                             }
                         })
-                        .padding(.horizontal, 15)
+                        .padding(15)
                         .buttonStyle(PrimaryButtonStyle(fillColor: .darkPrimaryButton))
                     }
                 }
