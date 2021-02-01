@@ -44,6 +44,7 @@
 		374A6D8725C8A872007F4DD2 /* TextfieldRoundedStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A6D8625C8A872007F4DD2 /* TextfieldRoundedStyle.swift */; };
 		374A6D8A25C8C22E007F4DD2 /* ProgressCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A6D8925C8C22E007F4DD2 /* ProgressCircleView.swift */; };
 		374A6D8D25C8C274007F4DD2 /* ProgressCircleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A6D8C25C8C274007F4DD2 /* ProgressCircleViewModel.swift */; };
+		374A6D9025C8C756007F4DD2 /* ChallengeItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A6D8F25C8C755007F4DD2 /* ChallengeItemView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +83,7 @@
 		374A6D8625C8A872007F4DD2 /* TextfieldRoundedStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextfieldRoundedStyle.swift; sourceTree = "<group>"; };
 		374A6D8925C8C22E007F4DD2 /* ProgressCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCircleView.swift; sourceTree = "<group>"; };
 		374A6D8C25C8C274007F4DD2 /* ProgressCircleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCircleViewModel.swift; sourceTree = "<group>"; };
+		374A6D8F25C8C755007F4DD2 /* ChallengeItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,12 +147,12 @@
 		374A6D1725C82624007F4DD2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				374A6D9225C8C76C007F4DD2 /* Challenge */,
 				374A6D5A25C87978007F4DD2 /* TabBar */,
 				374A6D2725C831A5007F4DD2 /* Custom */,
 				374A6D1825C8263D007F4DD2 /* LandingView.swift */,
 				374A6D2425C8312B007F4DD2 /* CreateView.swift */,
 				374A6D2C25C8355E007F4DD2 /* RemindView.swift */,
-				374A6D6825C87E71007F4DD2 /* ChallengeListView.swift */,
 				374A6D7425C89BF8007F4DD2 /* SettingsView.swift */,
 				374A6D8025C8A526007F4DD2 /* LoginSignUpView.swift */,
 			);
@@ -234,6 +236,15 @@
 				374A6D5B25C8798D007F4DD2 /* TabContainerView.swift */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		374A6D9225C8C76C007F4DD2 /* Challenge */ = {
+			isa = PBXGroup;
+			children = (
+				374A6D6825C87E71007F4DD2 /* ChallengeListView.swift */,
+				374A6D8F25C8C755007F4DD2 /* ChallengeItemView.swift */,
+			);
+			path = Challenge;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -322,6 +333,7 @@
 				374A6D5825C87392007F4DD2 /* AuthPublisher.swift in Sources */,
 				374A6D1F25C82968007F4DD2 /* PrimaryButtonStyle.swift in Sources */,
 				374A6D8A25C8C22E007F4DD2 /* ProgressCircleView.swift in Sources */,
+				374A6D9025C8C756007F4DD2 /* ChallengeItemView.swift in Sources */,
 				374A6D2225C82A70007F4DD2 /* Color+Ext.swift in Sources */,
 				374A6D6C25C87EA3007F4DD2 /* ChallengeListViewModel.swift in Sources */,
 				374A6D3125C83A50007F4DD2 /* ChallengeViewModel.swift in Sources */,

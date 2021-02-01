@@ -12,11 +12,12 @@ import FirebaseFirestoreSwift
 protocol ChallengeServiceProtocol {
     func create(_ challenge: Challenge) -> AnyPublisher<Void, IncrementError>
     func observeChallenges(userID: UserID) -> AnyPublisher<[Challenge], IncrementError>
+    func delete(challengeID: String) -> AnyPublisher<Void, IncrementError>
 }
 
 class ChallengeService: ChallengeServiceProtocol {
     func observeChallenges(userID: UserID) -> AnyPublisher<[Challenge], IncrementError> {
-        let query = db.collection("challenges").whereField("userUid", isEqualTo: userID)
+        let query = db.collection("challenges").whereField("userUid", isEqualTo: userID).order(by: "startDate", descending: true)
         return Publishers.QuerySnapshotPublisher(query: query)
             .flatMap { snapshot -> AnyPublisher<[Challenge], IncrementError> in
                 do {
@@ -46,6 +47,19 @@ class ChallengeService: ChallengeServiceProtocol {
                 return promise(.success(()))
             } catch {
                 return promise(.failure(.default()))
+            }
+        }
+        .eraseToAnyPublisher()
+    }
+    
+    func delete(challengeID: String) -> AnyPublisher<Void, IncrementError> {
+        return Future<Void, IncrementError> { promise in
+            self.db.collection("challenges").document(challengeID).delete { error in
+                if let error = error {
+                    promise(.failure(.default(description: error.localizedDescription)))
+                } else {
+                    promise(.success(()))
+                }
             }
         }
         .eraseToAnyPublisher()
