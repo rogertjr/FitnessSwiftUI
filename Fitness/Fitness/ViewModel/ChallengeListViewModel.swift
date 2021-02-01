@@ -16,11 +16,13 @@ class ChallengeListViewModel: ObservableObject {
     @Published private(set) var itemViewModels: [ChallengeItemViewModel] = []
     @Published private(set) var error: IncrementError?
     @Published private(set) var isLoading: Bool = false
+    @Published var showingCreateModal: Bool = false
     
     let title: String = "Challenges"
     
     enum Action {
         case retry
+        case create
     }
     
     init(userService: UserServiceProtocol = UserService(), challengeService: ChallengeServiceProtocol = ChallengeService()) {
@@ -33,6 +35,8 @@ class ChallengeListViewModel: ObservableObject {
         switch action {
         case .retry:
             observeChallenges()
+        case .create:
+            showingCreateModal = true
         }
     }
     
@@ -58,6 +62,7 @@ class ChallengeListViewModel: ObservableObject {
             } receiveValue: { [weak self] challenges in
                 guard let self  = self else { return }
                 self.isLoading = false
+                self.showingCreateModal = false
                 self.itemViewModels = challenges.map { .init($0) }
             }
             .store(in: &cancellables)

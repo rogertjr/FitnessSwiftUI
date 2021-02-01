@@ -41,6 +41,14 @@ struct ChallengeListView: View {
             }
             .padding(10)
         }
+        .sheet(isPresented: $vm.showingCreateModal) {
+            NavigationView {
+                CreateView()
+            }
+        }
+        .navigationBarItems(trailing: Button(action: { vm.send(action: .create) }, label: {
+            Image(systemName: "plus.circle").imageScale(.large)
+        }))
         .navigationTitle(vm.title)
     }
     
