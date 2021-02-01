@@ -17,33 +17,51 @@ final class ChallengeViewModel: ObservableObject {
     @Published var lengthDropDown = ChallengePartViewModel(type: .length)
     
     private let userService: UserServiceProtocol
+    private let challengeService: ChallengeServiceProtocol
     private var cancellables: [AnyCancellable] = []
     
     enum Action {
         case createChallenge
     }
     
-    init(userService: UserServiceProtocol = UserService()) {
+    init(userService: UserServiceProtocol = UserService(), challengeService: ChallengeServiceProtocol = ChallengeService()) {
         self.userService = userService
+        self.challengeService = challengeService
     }
     
     func send(action: Action){
         switch action {
         case .createChallenge:
             currentUserID()
+                .flatMap {userID -> AnyPublisher<Void, Error> in
+                    return self.createChallenge(userID: userID)
+                }
                 .sink { (completion) in
                     switch completion {
                     case let .failure(error):
                         print(error.localizedDescription)
                     case .finished:
-                        print("completed")
+                        print("finished")
                     }
-                } receiveValue: { (userID) in
-                    print("retrieved user ID \(userID)")
+                } receiveValue: { _ in
+                    print("Success")
                 }
                 .store(in: &cancellables)
-
         }
+    }
+    
+    private func createChallenge(userID: UserID) -> AnyPublisher<Void, Error> {
+        guard let exercise = exerciseDropDown.text,
+          let startAmount = startAmountDropDown.number,
+                let increase = increaseDropDown.number,
+                    let length = lengthDropDown.number else {
+            return Fail(error: NSError())
+                    .eraseToAnyPublisher()
+        }
+        
+        let challenge = Challenge(exercise: exercise, startAmount: startAmount, increase: increase, length: length, userUid: userID, startDate: Date())
+        
+        return challengeService.create(challenge).eraseToAnyPublisher()
     }
     
     private func currentUserID() -> AnyPublisher<UserID, Error> {
@@ -138,4 +156,24 @@ extension ChallengeViewModel {
             }
         }
     }
+}
+
+extension ChallengeViewModel.ChallengePartViewModel {
+    var text: String? {
+        if case let .text(text) = selectedOption.type {
+            return text
+        } else {
+            return nil
+            
+        }
+    }
+    
+    var number: Int? {
+        if case let .number(number) = selectedOption.type {
+            return number
+        } else {
+            return nil
+        }
+    }
+    
 }

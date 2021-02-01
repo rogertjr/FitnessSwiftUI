@@ -24,6 +24,8 @@
 		374A6D4125C84F8F007F4DD2 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 374A6D4025C84F8F007F4DD2 /* FirebaseAuth */; };
 		374A6D4325C84F8F007F4DD2 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 374A6D4225C84F8F007F4DD2 /* FirebaseFirestore */; };
 		374A6D4825C85755007F4DD2 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A6D4725C85755007F4DD2 /* UserService.swift */; };
+		374A6D4E25C86816007F4DD2 /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A6D4D25C86816007F4DD2 /* Challenge.swift */; };
+		374A6D5125C868C8007F4DD2 /* ChallengeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A6D5025C868C8007F4DD2 /* ChallengeService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		374A6D3425C83B53007F4DD2 /* DropdownItemProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownItemProtocol.swift; sourceTree = "<group>"; };
 		374A6D3825C84D71007F4DD2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		374A6D4725C85755007F4DD2 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		374A6D4D25C86816007F4DD2 /* Challenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
+		374A6D5025C868C8007F4DD2 /* ChallengeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +82,7 @@
 		374A6D0625C825FF007F4DD2 /* Fitness */ = {
 			isa = PBXGroup;
 			children = (
+				374A6D4C25C867F8007F4DD2 /* Model */,
 				374A6D4625C85741007F4DD2 /* Service */,
 				374A6D3825C84D71007F4DD2 /* GoogleService-Info.plist */,
 				374A6D3325C83B48007F4DD2 /* Protocol */,
@@ -148,8 +153,17 @@
 			isa = PBXGroup;
 			children = (
 				374A6D4725C85755007F4DD2 /* UserService.swift */,
+				374A6D5025C868C8007F4DD2 /* ChallengeService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		374A6D4C25C867F8007F4DD2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				374A6D4D25C86816007F4DD2 /* Challenge.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,10 +249,12 @@
 				374A6D2225C82A70007F4DD2 /* Color+Ext.swift in Sources */,
 				374A6D3125C83A50007F4DD2 /* ChallengeViewModel.swift in Sources */,
 				374A6D3525C83B53007F4DD2 /* DropdownItemProtocol.swift in Sources */,
+				374A6D4E25C86816007F4DD2 /* Challenge.swift in Sources */,
 				374A6D1925C8263D007F4DD2 /* LandingView.swift in Sources */,
 				374A6D0825C825FF007F4DD2 /* FitnessApp.swift in Sources */,
 				374A6D4825C85755007F4DD2 /* UserService.swift in Sources */,
 				374A6D2D25C8355E007F4DD2 /* RemindView.swift in Sources */,
+				374A6D5125C868C8007F4DD2 /* ChallengeService.swift in Sources */,
 				374A6D2525C8312B007F4DD2 /* CreateView.swift in Sources */,
 				374A6D2925C831B4007F4DD2 /* DropDownView.swift in Sources */,
 			);
