@@ -28,6 +28,9 @@
 		374A6D5125C868C8007F4DD2 /* ChallengeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A6D5025C868C8007F4DD2 /* ChallengeService.swift */; };
 		374A6D5425C86E61007F4DD2 /* IncrementError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A6D5325C86E61007F4DD2 /* IncrementError.swift */; };
 		374A6D5825C87392007F4DD2 /* AuthPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A6D5725C87392007F4DD2 /* AuthPublisher.swift */; };
+		374A6D5C25C8798D007F4DD2 /* TabContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A6D5B25C8798D007F4DD2 /* TabContainerView.swift */; };
+		374A6D6225C879F7007F4DD2 /* TabItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A6D6125C879F7007F4DD2 /* TabItemViewModel.swift */; };
+		374A6D6525C87B49007F4DD2 /* TabContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A6D6425C87B49007F4DD2 /* TabContainerViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +53,9 @@
 		374A6D5025C868C8007F4DD2 /* ChallengeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeService.swift; sourceTree = "<group>"; };
 		374A6D5325C86E61007F4DD2 /* IncrementError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncrementError.swift; sourceTree = "<group>"; };
 		374A6D5725C87392007F4DD2 /* AuthPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPublisher.swift; sourceTree = "<group>"; };
+		374A6D5B25C8798D007F4DD2 /* TabContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabContainerView.swift; sourceTree = "<group>"; };
+		374A6D6125C879F7007F4DD2 /* TabItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItemViewModel.swift; sourceTree = "<group>"; };
+		374A6D6425C87B49007F4DD2 /* TabContainerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabContainerViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +119,7 @@
 		374A6D1725C82624007F4DD2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				374A6D5A25C87978007F4DD2 /* TabBar */,
 				374A6D2725C831A5007F4DD2 /* Custom */,
 				374A6D1825C8263D007F4DD2 /* LandingView.swift */,
 				374A6D2425C8312B007F4DD2 /* CreateView.swift */,
@@ -143,6 +150,8 @@
 			isa = PBXGroup;
 			children = (
 				374A6D3025C83A50007F4DD2 /* ChallengeViewModel.swift */,
+				374A6D6125C879F7007F4DD2 /* TabItemViewModel.swift */,
+				374A6D6425C87B49007F4DD2 /* TabContainerViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -178,6 +187,14 @@
 				374A6D5725C87392007F4DD2 /* AuthPublisher.swift */,
 			);
 			path = Publisher;
+			sourceTree = "<group>";
+		};
+		374A6D5A25C87978007F4DD2 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				374A6D5B25C8798D007F4DD2 /* TabContainerView.swift */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,7 +285,10 @@
 				374A6D1925C8263D007F4DD2 /* LandingView.swift in Sources */,
 				374A6D0825C825FF007F4DD2 /* FitnessApp.swift in Sources */,
 				374A6D4825C85755007F4DD2 /* UserService.swift in Sources */,
+				374A6D5C25C8798D007F4DD2 /* TabContainerView.swift in Sources */,
 				374A6D2D25C8355E007F4DD2 /* RemindView.swift in Sources */,
+				374A6D6225C879F7007F4DD2 /* TabItemViewModel.swift in Sources */,
+				374A6D6525C87B49007F4DD2 /* TabContainerViewModel.swift in Sources */,
 				374A6D5125C868C8007F4DD2 /* ChallengeService.swift in Sources */,
 				374A6D2525C8312B007F4DD2 /* CreateView.swift in Sources */,
 				374A6D2925C831B4007F4DD2 /* DropDownView.swift in Sources */,

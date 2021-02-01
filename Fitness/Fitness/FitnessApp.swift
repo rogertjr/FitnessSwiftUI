@@ -16,13 +16,7 @@ struct FitnessApp: App {
     var body: some Scene {
         WindowGroup {
             if appState.isLoggedIn {
-                TabView {
-                    Text("logged in")
-                        .tabItem {
-                            Image(systemName: "book")
-                        }
-                }
-                .accentColor(.primary)
+                TabContainerView()
             } else {
                 LandingView()
             }
@@ -44,7 +38,7 @@ class AppState: ObservableObject {
     
     init(userService: UserServiceProtocol = UserService()){
         self.userService = userService
-        try? Auth.auth().signOut()
+//        try? Auth.auth().signOut()
         userService
             .observerAuthChanges()
             .map { $0 != nil }
