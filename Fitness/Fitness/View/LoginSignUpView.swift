@@ -11,17 +11,21 @@ struct LoginSignUpView: View {
     @ObservedObject var viewModel: LoginSignUpViewModel
     
     var emailTextField: some View {
-        TextField("Email", text: $viewModel.email)
+        TextField(viewModel.emailPlaceholderText, text: $viewModel.email)
             .modifier(TextfieldRoundedStyle())
+            .autocapitalization(.none)
     }
     
     var passwordTextField: some View {
-        SecureField("Password", text: $viewModel.password)
+        SecureField(viewModel.passwordPlaceholderText, text: $viewModel.password)
             .modifier(TextfieldRoundedStyle())
+            .autocapitalization(.none)
     }
     
     var actionButton: some View {
-        Button(action: {}) {
+        Button(action: {
+            viewModel.tappedActionButton()
+        }) {
             Text(viewModel.buttonTitle)
         }
         .padding()

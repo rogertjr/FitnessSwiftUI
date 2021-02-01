@@ -23,7 +23,7 @@ struct SettingsView: View {
             }
         }
         .background(
-            NavigationLink(destination: LoginSignUpView(viewModel: .init(mode: .login)), isActive: $viewModel.loginSignUpPushed) {
+            NavigationLink(destination: LoginSignUpView(viewModel: .init(mode: .login, isPushed: $viewModel.loginSignUpPushed)), isActive: $viewModel.loginSignUpPushed) {
                 Button(action: {
                     viewModel.loginSignUpPushed = true
                 }) { }

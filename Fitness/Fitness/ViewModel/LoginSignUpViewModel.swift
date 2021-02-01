@@ -5,7 +5,8 @@
 //  Created by Rogério Toledo on 01/02/21.
 //
 
-import Foundation
+import SwiftUI
+import Combine
 
 class LoginSignUpViewModel: ObservableObject {
     private let mode: Mode
@@ -14,8 +15,18 @@ class LoginSignUpViewModel: ObservableObject {
     @Published var password = ""
     @Published var isValid =  false
     
-    init(mode: Mode){
+    @Binding var isPushed: Bool
+    
+    private let userService: UserServiceProtocol
+    private var cancellables: [AnyCancellable] = []
+    
+    private(set) var emailPlaceholderText = "Email"
+    private(set) var passwordPlaceholderText = "Password"
+    
+    init(mode: Mode, userService: UserServiceProtocol = UserService(), isPushed: Binding<Bool>){
         self.mode = mode
+        self.userService = userService
+        self._isPushed = isPushed
     }
     
     var title: String {
@@ -42,6 +53,25 @@ class LoginSignUpViewModel: ObservableObject {
             return "Login"
         case .signup:
             return "Signup"
+        }
+    }
+    
+    func tappedActionButton() {
+        switch mode {
+        case .login:
+            print("login")
+        case .signup:
+            userService.linkAccount(email: email, password: password)
+                .sink { [weak self] (completion) in
+                    switch completion {
+                    case let .failure(error):
+                        print(error.localizedDescription)
+                    case  let .finished:
+                        self?.isPushed = false
+                        print("finished")
+                    }
+                } receiveValue: { _ in }
+                .store(in: &cancellables)
         }
     }
 }
