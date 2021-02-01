@@ -42,6 +42,8 @@
 		374A6D8125C8A526007F4DD2 /* LoginSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A6D8025C8A526007F4DD2 /* LoginSignUpView.swift */; };
 		374A6D8425C8A55E007F4DD2 /* LoginSignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A6D8325C8A55E007F4DD2 /* LoginSignUpViewModel.swift */; };
 		374A6D8725C8A872007F4DD2 /* TextfieldRoundedStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A6D8625C8A872007F4DD2 /* TextfieldRoundedStyle.swift */; };
+		374A6D8A25C8C22E007F4DD2 /* ProgressCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A6D8925C8C22E007F4DD2 /* ProgressCircleView.swift */; };
+		374A6D8D25C8C274007F4DD2 /* ProgressCircleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A6D8C25C8C274007F4DD2 /* ProgressCircleViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +80,8 @@
 		374A6D8025C8A526007F4DD2 /* LoginSignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSignUpView.swift; sourceTree = "<group>"; };
 		374A6D8325C8A55E007F4DD2 /* LoginSignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSignUpViewModel.swift; sourceTree = "<group>"; };
 		374A6D8625C8A872007F4DD2 /* TextfieldRoundedStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextfieldRoundedStyle.swift; sourceTree = "<group>"; };
+		374A6D8925C8C22E007F4DD2 /* ProgressCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCircleView.swift; sourceTree = "<group>"; };
+		374A6D8C25C8C274007F4DD2 /* ProgressCircleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCircleViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				374A6D2825C831B4007F4DD2 /* DropDownView.swift */,
+				374A6D8925C8C22E007F4DD2 /* ProgressCircleView.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -184,6 +189,7 @@
 				374A6D7A25C89C48007F4DD2 /* SettingsItemViewModel.swift */,
 				374A6D7D25C8A3AC007F4DD2 /* LandingViewModel.swift */,
 				374A6D8325C8A55E007F4DD2 /* LoginSignUpViewModel.swift */,
+				374A6D8C25C8C274007F4DD2 /* ProgressCircleViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -315,6 +321,7 @@
 				374A6D7B25C89C48007F4DD2 /* SettingsItemViewModel.swift in Sources */,
 				374A6D5825C87392007F4DD2 /* AuthPublisher.swift in Sources */,
 				374A6D1F25C82968007F4DD2 /* PrimaryButtonStyle.swift in Sources */,
+				374A6D8A25C8C22E007F4DD2 /* ProgressCircleView.swift in Sources */,
 				374A6D2225C82A70007F4DD2 /* Color+Ext.swift in Sources */,
 				374A6D6C25C87EA3007F4DD2 /* ChallengeListViewModel.swift in Sources */,
 				374A6D3125C83A50007F4DD2 /* ChallengeViewModel.swift in Sources */,
@@ -325,6 +332,7 @@
 				374A6D1925C8263D007F4DD2 /* LandingView.swift in Sources */,
 				374A6D0825C825FF007F4DD2 /* FitnessApp.swift in Sources */,
 				374A6D4825C85755007F4DD2 /* UserService.swift in Sources */,
+				374A6D8D25C8C274007F4DD2 /* ProgressCircleViewModel.swift in Sources */,
 				374A6D5C25C8798D007F4DD2 /* TabContainerView.swift in Sources */,
 				374A6D8725C8A872007F4DD2 /* TextfieldRoundedStyle.swift in Sources */,
 				374A6D2D25C8355E007F4DD2 /* RemindView.swift in Sources */,
