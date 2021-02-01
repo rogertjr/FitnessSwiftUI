@@ -11,9 +11,26 @@ import FirebaseFirestoreSwift
 
 protocol ChallengeServiceProtocol {
     func create(_ challenge: Challenge) -> AnyPublisher<Void, IncrementError>
+    func observeChallenges(userID: UserID) -> AnyPublisher<[Challenge], IncrementError>
 }
 
 class ChallengeService: ChallengeServiceProtocol {
+    func observeChallenges(userID: UserID) -> AnyPublisher<[Challenge], IncrementError> {
+        let query = db.collection("challenges").whereField("userUid", isEqualTo: userID)
+        return Publishers.QuerySnapshotPublisher(query: query)
+            .flatMap { snapshot -> AnyPublisher<[Challenge], IncrementError> in
+                do {
+                    let challenges = try snapshot.documents.compactMap {
+                        try $0.data(as: Challenge.self)
+                    }
+                    return Just(challenges).setFailureType(to: IncrementError.self).eraseToAnyPublisher()
+                } catch {
+                    return Fail(error: .default(description: "Parsing Error")).eraseToAnyPublisher()
+                }
+            }
+            .eraseToAnyPublisher()
+    }
+    
     private let db = Firestore.firestore()
     
     func create(_ challenge: Challenge) -> AnyPublisher<Void, IncrementError> {

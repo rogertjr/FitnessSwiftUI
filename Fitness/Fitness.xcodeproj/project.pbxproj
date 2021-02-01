@@ -31,6 +31,10 @@
 		374A6D5C25C8798D007F4DD2 /* TabContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A6D5B25C8798D007F4DD2 /* TabContainerView.swift */; };
 		374A6D6225C879F7007F4DD2 /* TabItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A6D6125C879F7007F4DD2 /* TabItemViewModel.swift */; };
 		374A6D6525C87B49007F4DD2 /* TabContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A6D6425C87B49007F4DD2 /* TabContainerViewModel.swift */; };
+		374A6D6925C87E71007F4DD2 /* ChallengeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A6D6825C87E71007F4DD2 /* ChallengeListView.swift */; };
+		374A6D6C25C87EA3007F4DD2 /* ChallengeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A6D6B25C87EA3007F4DD2 /* ChallengeListViewModel.swift */; };
+		374A6D6F25C8809B007F4DD2 /* QuerySnapshotPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A6D6E25C8809B007F4DD2 /* QuerySnapshotPublisher.swift */; };
+		374A6D7225C8896A007F4DD2 /* ChallengeItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A6D7125C8896A007F4DD2 /* ChallengeItemViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +60,10 @@
 		374A6D5B25C8798D007F4DD2 /* TabContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabContainerView.swift; sourceTree = "<group>"; };
 		374A6D6125C879F7007F4DD2 /* TabItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItemViewModel.swift; sourceTree = "<group>"; };
 		374A6D6425C87B49007F4DD2 /* TabContainerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabContainerViewModel.swift; sourceTree = "<group>"; };
+		374A6D6825C87E71007F4DD2 /* ChallengeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeListView.swift; sourceTree = "<group>"; };
+		374A6D6B25C87EA3007F4DD2 /* ChallengeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeListViewModel.swift; sourceTree = "<group>"; };
+		374A6D6E25C8809B007F4DD2 /* QuerySnapshotPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuerySnapshotPublisher.swift; sourceTree = "<group>"; };
+		374A6D7125C8896A007F4DD2 /* ChallengeItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeItemViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +132,7 @@
 				374A6D1825C8263D007F4DD2 /* LandingView.swift */,
 				374A6D2425C8312B007F4DD2 /* CreateView.swift */,
 				374A6D2C25C8355E007F4DD2 /* RemindView.swift */,
+				374A6D6825C87E71007F4DD2 /* ChallengeListView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -152,6 +161,8 @@
 				374A6D3025C83A50007F4DD2 /* ChallengeViewModel.swift */,
 				374A6D6125C879F7007F4DD2 /* TabItemViewModel.swift */,
 				374A6D6425C87B49007F4DD2 /* TabContainerViewModel.swift */,
+				374A6D6B25C87EA3007F4DD2 /* ChallengeListViewModel.swift */,
+				374A6D7125C8896A007F4DD2 /* ChallengeItemViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -185,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				374A6D5725C87392007F4DD2 /* AuthPublisher.swift */,
+				374A6D6E25C8809B007F4DD2 /* QuerySnapshotPublisher.swift */,
 			);
 			path = Publisher;
 			sourceTree = "<group>";
@@ -276,18 +288,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				374A6D7225C8896A007F4DD2 /* ChallengeItemViewModel.swift in Sources */,
 				374A6D5825C87392007F4DD2 /* AuthPublisher.swift in Sources */,
 				374A6D1F25C82968007F4DD2 /* PrimaryButtonStyle.swift in Sources */,
 				374A6D2225C82A70007F4DD2 /* Color+Ext.swift in Sources */,
+				374A6D6C25C87EA3007F4DD2 /* ChallengeListViewModel.swift in Sources */,
 				374A6D3125C83A50007F4DD2 /* ChallengeViewModel.swift in Sources */,
 				374A6D3525C83B53007F4DD2 /* DropdownItemProtocol.swift in Sources */,
 				374A6D4E25C86816007F4DD2 /* Challenge.swift in Sources */,
+				374A6D6F25C8809B007F4DD2 /* QuerySnapshotPublisher.swift in Sources */,
 				374A6D1925C8263D007F4DD2 /* LandingView.swift in Sources */,
 				374A6D0825C825FF007F4DD2 /* FitnessApp.swift in Sources */,
 				374A6D4825C85755007F4DD2 /* UserService.swift in Sources */,
 				374A6D5C25C8798D007F4DD2 /* TabContainerView.swift in Sources */,
 				374A6D2D25C8355E007F4DD2 /* RemindView.swift in Sources */,
 				374A6D6225C879F7007F4DD2 /* TabItemViewModel.swift in Sources */,
+				374A6D6925C87E71007F4DD2 /* ChallengeListView.swift in Sources */,
 				374A6D6525C87B49007F4DD2 /* TabContainerViewModel.swift in Sources */,
 				374A6D5125C868C8007F4DD2 /* ChallengeService.swift in Sources */,
 				374A6D2525C8312B007F4DD2 /* CreateView.swift in Sources */,
