@@ -11,6 +11,7 @@ import Combine
 protocol UserServiceProtocol {
     func currentUser() -> AnyPublisher<User?,Never>
     func sigInAnon() -> AnyPublisher<User,IncrementError>
+    func observerAuthChanges() -> AnyPublisher<User?, Never>
 }
 
 class UserService: UserServiceProtocol {
@@ -29,6 +30,10 @@ class UserService: UserServiceProtocol {
             }
         }
         .eraseToAnyPublisher()
+    }
+    
+    func observerAuthChanges() -> AnyPublisher<User?, Never> {
+        Publishers.AuthPublisher().eraseToAnyPublisher()
     }
     
     
