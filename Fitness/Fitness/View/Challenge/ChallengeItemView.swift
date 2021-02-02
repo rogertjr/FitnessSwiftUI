@@ -22,7 +22,7 @@ struct ChallengeItemView: View {
             
             Image(systemName: "trash")
                 .onTapGesture {
-                    viewModel.tappedDelete()
+                    viewModel.send(action: .delete)
                 }
         }
     }
@@ -35,14 +35,37 @@ struct ChallengeItemView: View {
         }
     }
     
+    var todayView: some View {
+        VStack {
+            Divider()
+            
+            Text(viewModel.todayViewText)
+                .font(.title3)
+                .fontWeight(.medium)
+            
+            Text(viewModel.todayRepTitle)
+                .font(.system(size: 24, weight: .bold))
+            
+            Button(action: { viewModel.send(action: .toggleComplete) }, label: {
+                Text(viewModel.isDayComplete || viewModel.isComplete ? "Completed" : "Mark Done")
+            })
+            .disabled(viewModel.isComplete)
+            .padding(.vertical, 10)
+            .padding(.horizontal, 15)
+            .font(Font.caption.weight(.semibold))
+            .background(viewModel.isDayComplete ? Color.circleTrack : Color.primaryButton)
+            .cornerRadius(8)
+        }
+    }
+    
     var body: some View {
         HStack {
             Spacer()
-            VStack {
+            VStack(spacing: 25) {
                 titleRow
                 ProgressCircleView(viewModel: viewModel.progressCircleViewModel)
-                    .padding(.vertical, 25)
                 dailyIncreaseRow
+                todayView
             }
             .padding(.vertical, 10)
             Spacer()

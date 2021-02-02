@@ -65,7 +65,11 @@ final class ChallengeViewModel: ObservableObject {
                     .eraseToAnyPublisher()
         }
         
-        let challenge = Challenge(exercise: exercise, startAmount: startAmount, increase: increase, length: length, userUid: userID, startDate: Date())
+        let startDate = Calendar.current.startOfDay(for: Date())
+        
+        let challenge = Challenge(exercise: exercise, startAmount: startAmount, increase: increase, length: length, userUid: userID, startDate: startDate, activities: (0..<length).compactMap{ dayNum in
+            if let dateForDayNum = Calendar.current.date(byAdding: .day, value: dayNum, to: startDate){ return .init(date: dateForDayNum, isComplete: false) } else { return nil }
+        })
         
         return challengeService.create(challenge).eraseToAnyPublisher()
     }
